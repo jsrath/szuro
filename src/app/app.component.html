@@ -1,3 +1,11 @@
-<app-control-panel (filteredTime)="updateTime($event)" (filteredPrice)="updatePrice($event)"></app-control-panel>
+<app-control-panel
+  [props]="props"
+  (filteredValues)="updateValues($event)">
+</app-control-panel>
 
-<app-events [time]="filteredTime" [price]="filteredPrice"></app-events>
+<app-events
+  [events]="events"
+  [beforeTime]="filteredBeforeTime"
+  [afterTime]="filteredAfterTime"
+  [price]="filteredPrice">
+</app-events>

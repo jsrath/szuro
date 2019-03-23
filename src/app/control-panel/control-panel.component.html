@@ -2,25 +2,45 @@
   <mat-card-content>
     <h2>Price</h2>
     <mat-slider
+      *ngIf="props"
       class="price"
       (input)="updatePrice($event.value)"
-      [value]="price"
-      [max]="10000"
-      [min]="priceMin">
+      [value]="sliderValues.price"
+      [max]="props.maxPrice"
+      [min]="props.minPrice"
+      [step]="500">
     </mat-slider>
-    <p>{{ price }}</p>
+    <p>{{ sliderValues.price }}</p>
   </mat-card-content>
 </mat-card>
+
+
 <mat-card>
   <mat-card-content>
-    <h2>Time</h2>
+    <h2>Show Starts After</h2>
     <mat-slider
-      class="price"
-      (input)="updateTime($event.value)"
-      [value]="time"
-      [max]="24"
-      [min]="0">
+      *ngIf="props"
+      class="timeAfter"
+      (input)="updateAfterTime($event.value)"
+      [value]="sliderValues.afterTime"
+      [max]="props.maxTime"
+      [min]="props.minTime">
     </mat-slider>
-    <p>{{ time }}:00</p>
+    <p>{{ sliderValues.afterTime }}:00</p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
+    <h2>Show Starts Before</h2>
+    <mat-slider
+      *ngIf="props"
+      class="timeBefore"
+      (input)="updateBeforeTime($event.value)"
+      [value]="sliderValues.beforeTime"
+      [max]="props.maxTime"
+      [min]="props.minTime">
+    </mat-slider>
+    <p>{{ sliderValues.beforeTime }}:00</p>
   </mat-card-content>
 </mat-card>
