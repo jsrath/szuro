@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class EventService {
   constructor(private http: HttpClient) {}
 
-  apiUrl = 'https://maesteszinhaz.hu/api';
+  apiUrl = './assets/mock-api.json';
 
   getEvents(): Observable<EventDetails[]> {
     return this.http.get<EventDetails[]>(this.apiUrl);

@@ -13,7 +13,7 @@ export class ControlPanelComponent implements OnChanges {
   props: Props | undefined;
 
   @Output()
-  filteredValues: EventEmitter<any> = new EventEmitter();
+  filteredValues: EventEmitter<SliderValues> = new EventEmitter();
 
   sliderValues: SliderValues = {
     price: undefined,
@@ -29,18 +29,17 @@ export class ControlPanelComponent implements OnChanges {
     }
   }
 
-  updatePrice(price) {
+  updatePrice(price: number) {
     this.sliderValues.price = price;
     this.filteredValues.emit(this.sliderValues);
   }
 
-  updateBeforeTime(time) {
+  updateBeforeTime(time: number) {
     this.sliderValues.beforeTime = time;
     this.filteredValues.emit(this.sliderValues);
-    console.log(this.sliderValues);
   }
 
-  updateAfterTime(time) {
+  updateAfterTime(time: number) {
     this.sliderValues.afterTime = time;
     this.filteredValues.emit(this.sliderValues);
   }

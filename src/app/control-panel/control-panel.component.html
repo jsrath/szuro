@@ -10,11 +10,11 @@
       [min]="props.minPrice"
       [step]="500">
     </mat-slider>
-    <p>{{ sliderValues.price }}</p>
+    <button class="myButton">{{ sliderValues.price | currency:'HUF':'HUF ':'0.0' }}</button>
   </mat-card-content>
 </mat-card>
 
-
+<mat-divider></mat-divider>
 <mat-card>
   <mat-card-content>
     <h2>Show Starts After</h2>
@@ -26,12 +26,8 @@
       [max]="props.maxTime"
       [min]="props.minTime">
     </mat-slider>
-    <p>{{ sliderValues.afterTime }}:00</p>
-  </mat-card-content>
-</mat-card>
-
-<mat-card>
-  <mat-card-content>
+    <button class="myButton">{{ sliderValues.afterTime }}:00</button>
+    <mat-divider></mat-divider>
     <h2>Show Starts Before</h2>
     <mat-slider
       *ngIf="props"
@@ -41,6 +37,6 @@
       [max]="props.maxTime"
       [min]="props.minTime">
     </mat-slider>
-    <p>{{ sliderValues.beforeTime }}:00</p>
+    <button class="myButton">{{ sliderValues.beforeTime }}:00</button>
   </mat-card-content>
 </mat-card>

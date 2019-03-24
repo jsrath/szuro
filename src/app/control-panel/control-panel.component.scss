@@ -1,3 +1,215 @@
-.price {
-  width: 50%;
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-slider {
+  width: 90%;
+}
+
+.fc button {
+  border: none;
+  border-radius: 30px;
+  position: relative;
+  padding: 6px 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  will-change: box-shadow, transform;
+  transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fc button::-moz-focus-inner {
+  border: 0;
+}
+.fc button,
+.fc button.btn-primary {
+  box-shadow: 0 2px 2px 0 rgba(156, 39, 176, 0.14), 0 3px 1px -2px rgba(156, 39, 176, 0.2),
+    0 1px 5px 0 rgba(156, 39, 176, 0.12);
+}
+.fc button,
+.fc button:hover,
+.fc button:focus,
+.fc button:active,
+.fc button.active,
+.fc button:active:focus,
+.fc button:active:hover,
+.fc button.active:focus,
+.fc button.active:hover,
+.open > .fc button.dropdown-toggle,
+.open > .fc button.dropdown-toggle:focus,
+.open > .fc button.dropdown-toggle:hover,
+.fc button.btn-primary,
+.fc button.btn-primary:hover,
+.fc button.btn-primary:focus,
+.fc button.btn-primary:active,
+.fc button.btn-primary.active,
+.fc button.btn-primary:active:focus,
+.fc button.btn-primary:active:hover,
+.fc button.btn-primary.active:focus,
+.fc button.btn-primary.active:hover,
+.open > .fc button.btn-primary.dropdown-toggle,
+.open > .fc button.btn-primary.dropdown-toggle:focus,
+.open > .fc button.btn-primary.dropdown-toggle:hover {
+  background-color: #9c27b0;
+  color: #ffffff;
+}
+.fc button:focus,
+.fc button:active,
+.fc button:hover,
+.fc button.btn-primary:focus,
+.fc button.btn-primary:active,
+.fc button.btn-primary:hover {
+  box-shadow: 0 14px 26px -12px rgba(156, 39, 176, 0.42), 0 4px 23px 0px rgba(0, 0, 0, 0.12),
+    0 8px 10px -5px rgba(156, 39, 176, 0.2);
+}
+.fc button.disabled,
+.fc button.disabled:hover,
+.fc button.disabled:focus,
+.fc button.disabled.focus,
+.fc button.disabled:active,
+.fc button.disabled.active,
+.fc button:disabled,
+.fc button:disabled:hover,
+.fc button:disabled:focus,
+.fc button:disabled.focus,
+.fc button:disabled:active,
+.fc button:disabled.active,
+.fc button[disabled],
+.fc button[disabled]:hover,
+.fc button[disabled]:focus,
+.fc button[disabled].focus,
+.fc button[disabled]:active,
+.fc button[disabled].active,
+fieldset[disabled] .fc button,
+fieldset[disabled] .fc button:hover,
+fieldset[disabled] .fc button:focus,
+fieldset[disabled] .fc button.focus,
+fieldset[disabled] .fc button:active,
+fieldset[disabled] .fc button.active,
+.fc button.btn-primary.disabled,
+.fc button.btn-primary.disabled:hover,
+.fc button.btn-primary.disabled:focus,
+.fc button.btn-primary.disabled.focus,
+.fc button.btn-primary.disabled:active,
+.fc button.btn-primary.disabled.active,
+.fc button.btn-primary:disabled,
+.fc button.btn-primary:disabled:hover,
+.fc button.btn-primary:disabled:focus,
+.fc button.btn-primary:disabled.focus,
+.fc button.btn-primary:disabled:active,
+.fc button.btn-primary:disabled.active,
+.fc button.btn-primary[disabled],
+.fc button.btn-primary[disabled]:hover,
+.fc button.btn-primary[disabled]:focus,
+.fc button.btn-primary[disabled].focus,
+.fc button.btn-primary[disabled]:active,
+.fc button.btn-primary[disabled].active,
+fieldset[disabled] .fc button.btn-primary,
+fieldset[disabled] .fc button.btn-primary:hover,
+fieldset[disabled] .fc button.btn-primary:focus,
+fieldset[disabled] .fc button.btn-primary.focus,
+fieldset[disabled] .fc button.btn-primary:active,
+fieldset[disabled] .fc button.btn-primary.active {
+  box-shadow: none;
+}
+.fc button.btn-simple,
+.fc button.btn-primary.btn-simple {
+  background-color: transparent;
+  color: #9c27b0;
+  box-shadow: none;
+}
+.fc button.btn-simple:hover,
+.fc button.btn-simple:focus,
+.fc button.btn-simple:active,
+.fc button.btn-primary.btn-simple:hover,
+.fc button.btn-primary.btn-simple:focus,
+.fc button.btn-primary.btn-simple:active {
+  background-color: transparent;
+  color: #9c27b0;
+}
+
+.fc button[disabled],
+.fc button[disabled]:focus,
+.fc button[disabled]:hover {
+  cursor: default;
+  background-color: #999999;
+  border-color: #999999;
+  box-shadow: 0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2),
+    0 1px 5px 0 rgba(153, 153, 153, 0.12);
+}
+
+.fc-state-default {
+  /* non-theme */
+  border: 1px solid;
+}
+
+/*.fc-state-default.fc-corner-left { non-theme
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.fc-state-default.fc-corner-right { /* non-theme
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}*/
+/* icons in buttons */
+.fc button .fc-icon {
+  /* non-theme */
+  position: relative;
+  top: -0.05em;
+  /* seems to be a good adjustment across browsers */
+  margin: 0 0.2em;
+  vertical-align: middle;
+}
+
+/*
+  button states
+  borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
+*/
+.fc-state-hover,
+.fc-state-down,
+.fc-state-active,
+.fc-state-disabled {
+  color: #333333;
+  background-color: #e6e6e6;
+}
+
+.fc-state-hover {
+  color: #333333;
+  text-decoration: none;
+  background-position: 0 -15px;
+  -webkit-transition: background-position 0.1s linear;
+  -moz-transition: background-position 0.1s linear;
+  -o-transition: background-position 0.1s linear;
+  transition: background-position 0.1s linear;
+}
+
+.fc-state-down,
+.fc-state-active {
+  background-color: #cccccc;
+  background-image: none;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.fc-state-disabled {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  box-shadow: none;
+}
+
+.myButton {
+  background-color: #fd9e1a;
+  border: none;
+  border-radius: 3px;
+  box-shadow: rgba(156, 39, 176, 0.14) 0px 2px 2px 0px, rgba(156, 39, 176, 0.2) 0px 3px 1px -2px,
+    rgba(156, 39, 176, 0.12) 0px 1px 5px 0px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  height: 40px;
+  line-height: 17px;
+  margin: 10px 1px;
+  padding: 12px 30px;
 }
