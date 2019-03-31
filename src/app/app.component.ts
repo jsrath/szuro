@@ -16,9 +16,10 @@ export class AppComponent implements OnInit {
   filteredPrice: number;
   filteredBeforeTime: number;
   filteredAfterTime: number;
+  sortBy: string;
   props: Props;
 
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService) { }
 
   ngOnInit() {
     this.eventService.getEvents().subscribe((event: any) => {
@@ -38,8 +39,10 @@ export class AppComponent implements OnInit {
 
   updateValues(values: SliderValues) {
     this.filteredPrice = Object.is(values.price, undefined) ? this.filteredPrice : values.price;
-    // this.filteredPrice = values.price;
     this.filteredBeforeTime = values.beforeTime;
     this.filteredAfterTime = values.afterTime;
+  }
+  sortEvents(sortType) {
+    this.sortBy = sortType;
   }
 }

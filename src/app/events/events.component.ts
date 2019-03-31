@@ -8,7 +8,7 @@ import { EventDetails } from '../app.model';
   styleUrls: ['./events.component.scss'],
 })
 export class EventsComponent implements OnChanges {
-  constructor(private eventService: EventService) {}
+  constructor(private eventService: EventService) { }
 
   @Input()
   price: number;
@@ -22,11 +22,17 @@ export class EventsComponent implements OnChanges {
   @Input()
   events: EventDetails[];
 
+  @Input()
+  sort: string;
+
   filteredEvents: EventDetails[];
+
+
 
   ngOnChanges() {
     this.getData();
     this.events && this.applyFilters();
+    this.sort && this.sortEvents();
   }
 
   applyFilters() {
@@ -34,14 +40,17 @@ export class EventsComponent implements OnChanges {
       let price = event.discount_price < this.price;
       let before = new Date(event.event_date).getHours() < this.beforeTime;
       let after = new Date(event.event_date).getHours() > this.afterTime;
-
       return price && before && after;
-    });
+    })
   }
 
   getData() {
     this.eventService.getEvents().subscribe((events: any) => {
       this.events = events.events;
     });
+  }
+
+  sortEvents() {
+    this.filteredEvents.sort((first, second) => first[this.sort] - second[this.sort]);
   }
 }

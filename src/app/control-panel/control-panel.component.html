@@ -1,5 +1,19 @@
 <mat-card>
   <mat-card-content>
+    <mat-form-field>
+      <mat-label>Sort By</mat-label>
+      <mat-select [(value)]="selectedSort" (selectionChange)="updateSort()">
+        <mat-option value="discount_price">Price</mat-option>
+        <mat-option value="event_date">Start Time</mat-option>
+        <mat-option value="event_date">End Time</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <p>{{selected}}</p>
+  </mat-card-content>
+</mat-card>
+
+<mat-card>
+  <mat-card-content>
     <h2>Price</h2>
     <mat-slider
       *ngIf="props"

@@ -7,13 +7,19 @@ import { Props, SliderValues } from '../app.model';
   styleUrls: ['./control-panel.component.scss'],
 })
 export class ControlPanelComponent implements OnChanges {
-  constructor() {}
+  constructor() { }
+
+  selectedSort: string;
 
   @Input()
   props: Props | undefined;
 
   @Output()
   filteredValues: EventEmitter<SliderValues> = new EventEmitter();
+
+  @Output()
+  eventSortBy: EventEmitter<String> = new EventEmitter();
+
 
   sliderValues: SliderValues = {
     price: undefined,
@@ -42,5 +48,8 @@ export class ControlPanelComponent implements OnChanges {
   updateAfterTime(time: number) {
     this.sliderValues.afterTime = time;
     this.filteredValues.emit(this.sliderValues);
+  }
+  updateSort() {
+    this.eventSortBy.emit(this.selectedSort)
   }
 }

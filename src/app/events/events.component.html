@@ -1,20 +1,22 @@
-<h4 *ngIf="filteredEvents.length < 1">No events to display</h4>
-<div class="card" *ngFor="let event of filteredEvents">
-  <div class="card-header" data-background-color="orange">
-    <mat-chip-list>
-      <mat-chip>{{event.discount_price | currency:'HUF':'HUF ':'0.0'}}</mat-chip>
-    </mat-chip-list>
-    <img [src]="event.thumbnail">
-  </div>
-  <div class="card-content">
-    <h4 class="card-title">{{ event.program_name}}</h4>
-    <p class="category">
-      <span class="text-success">
-        <i class="fa fa-long-arrow-up"></i>
-        55% </span> increase in today sales.
-    </p>
-  </div>
-  <div class="card-footer">
-    <p class="stats"><i class="material-icons">access_time</i>{{event.event_start}}</p>
+<div class="container">
+  <h3 *ngIf="!filteredEvents || filteredEvents.length < 1">No events to display</h3>
+  <div class="card" *ngFor="let event of filteredEvents">
+    <div class="card-header" data-background-color="orange">
+      <mat-chip-list>
+        <mat-chip>{{event.discount_price | currency:'HUF':'HUF ':'0.0'}}</mat-chip>
+      </mat-chip-list>
+      <img [src]="event.thumbnail">
+    </div>
+    <div class="card-content">
+      <h4 class="card-title">{{ event.program_name}}</h4>
+      <p class="category">
+        <span class="text-success">
+          <i class="fa fa-long-arrow-up"></i>
+          55% </span> increase in today sales.
+      </p>
+    </div>
+    <div class="card-footer">
+      <p class="stats"><i class="material-icons">access_time</i>{{event.event_start}}</p>
+    </div>
   </div>
 </div>
