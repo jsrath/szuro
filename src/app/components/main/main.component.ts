@@ -4,10 +4,10 @@ import { EventDetails, Props, SliderValues } from '../../models/app.model';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class MainComponent implements OnInit {
   minPrice: number;
   maxPrice: number;
   minTime: number;
