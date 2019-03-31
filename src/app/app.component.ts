@@ -42,6 +42,7 @@ export class AppComponent implements OnInit {
     this.filteredBeforeTime = values.beforeTime;
     this.filteredAfterTime = values.afterTime;
   }
+
   sortEvents(sortType) {
     this.sortBy = sortType;
   }

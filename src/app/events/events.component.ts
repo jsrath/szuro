@@ -51,6 +51,22 @@ export class EventsComponent implements OnChanges {
   }
 
   sortEvents() {
-    this.filteredEvents.sort((first, second) => first[this.sort] - second[this.sort]);
+    switch (this.sort) {
+      case 'price':
+        this.filteredEvents.sort((first, second) => first.discount_price - second.discount_price);
+        break;
+      case 'early':
+        this.filteredEvents.sort((first, second) => this.formatEventTime(first.event_date) - this.formatEventTime(second.event_date));
+        break;
+      case 'late':
+        this.filteredEvents.sort((first, second) => this.formatEventTime(second.event_date) - this.formatEventTime(first.event_date));
+        break;
+      default:
+        break;
+    }
+  }
+
+  formatEventTime(event) {
+    return new Date(event).getHours()
   }
 }

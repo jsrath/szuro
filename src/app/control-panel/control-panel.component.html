@@ -3,9 +3,9 @@
     <mat-form-field>
       <mat-label>Sort By</mat-label>
       <mat-select [(value)]="selectedSort" (selectionChange)="updateSort()">
-        <mat-option value="discount_price">Price</mat-option>
-        <mat-option value="event_date">Start Time</mat-option>
-        <mat-option value="event_date">End Time</mat-option>
+        <mat-option value="price">Price</mat-option>
+        <mat-option value="early">Start Time (Earliest)</mat-option>
+        <mat-option value="late">Start Time (Latest)</mat-option>
       </mat-select>
     </mat-form-field>
     <p>{{selected}}</p>
