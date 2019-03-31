@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from './event.service';
-import { EventDetails, Props, SliderValues } from '../app/app.model';
+import { EventService } from '../../services/event.service';
+import { EventDetails, Props, SliderValues } from '../../models/app.model';
 
 @Component({
   selector: 'app-root',

@@ -1,6 +1,6 @@
 import { Component, OnChanges, Input } from '@angular/core';
-import { EventService } from '../event.service';
-import { EventDetails, ApiResponse } from '../app.model';
+import { EventService } from '../../services/event.service';
+import { EventDetails, ApiResponse } from '../../models/app.model';
 
 @Component({
   selector: 'app-events',
@@ -66,7 +66,7 @@ export class EventsComponent implements OnChanges {
     }
   }
 
-  formatEventTime(event) {
+  formatEventTime(event: string) {
     return new Date(event).getHours()
   }
 }

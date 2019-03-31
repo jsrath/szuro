@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
-import { Props, SliderValues } from '../app.model';
+import { Props, SliderValues } from '../../models/app.model'
 
 @Component({
   selector: 'app-control-panel',
