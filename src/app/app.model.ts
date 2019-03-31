@@ -28,3 +28,7 @@ export interface SliderValues {
   beforeTime: number;
   afterTime: number;
 }
+
+export interface ApiResponse {
+  events: EventDetails[];
+}

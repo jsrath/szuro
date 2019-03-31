@@ -1,6 +1,6 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { EventService } from '../event.service';
-import { EventDetails } from '../app.model';
+import { EventDetails, ApiResponse } from '../app.model';
 
 @Component({
   selector: 'app-events',
@@ -45,7 +45,7 @@ export class EventsComponent implements OnChanges {
   }
 
   getData() {
-    this.eventService.getEvents().subscribe((events: any) => {
+    this.eventService.getEvents().subscribe((events: ApiResponse) => {
       this.events = events.events;
     });
   }
