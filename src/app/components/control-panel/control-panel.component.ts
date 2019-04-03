@@ -21,7 +21,10 @@ export class ControlPanelComponent implements OnChanges {
   filteredValues: EventEmitter<SliderValues> = new EventEmitter();
 
   @Output()
-  eventSortBy: EventEmitter<String> = new EventEmitter();
+	eventSortBy: EventEmitter<String> = new EventEmitter();
+
+	@Output()
+  boxChecked: EventEmitter<Object> = new EventEmitter();
 
 
   sliderValues: SliderValues = {
@@ -51,8 +54,18 @@ export class ControlPanelComponent implements OnChanges {
   updateAfterTime(time: number) {
     this.sliderValues.afterTime = time;
     this.filteredValues.emit(this.sliderValues);
-  }
+	}
+
   updateSort() {
     this.eventSortBy.emit(this.selectedSort)
-  }
+	}
+
+	updateCheckBoxes(district) {
+		const selectedDistrict = {
+			district: district.source.id.length > 3 ? district.source.id.slice(0,-2) : `0${district.source.id.slice(0,-2)}`,
+			checked: district.checked
+		}
+		this.boxChecked.emit(selectedDistrict);
+	}
+
 }

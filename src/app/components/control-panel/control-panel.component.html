@@ -12,7 +12,7 @@
   </mat-card-content>
 </mat-card>
 <span *ngFor="let district of districts">
-<mat-checkbox checked="true" *ngIf="district">{{district}}</mat-checkbox>
+<mat-checkbox checked="true" [id]="district" (change)="updateCheckBoxes($event)" *ngIf="district">{{district}}</mat-checkbox>
 </span>
 <mat-card>
   <mat-card-content>

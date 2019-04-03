@@ -1,6 +1,6 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { EventService } from '../../services/event.service';
-import { EventDetails, ApiResponse } from '../../models/app.model';
+import { EventDetails, ApiResponse, DistrictCheckBoxEvent } from '../../models/app.model';
 
 @Component({
   selector: 'app-events',
@@ -25,14 +25,20 @@ export class EventsComponent implements OnChanges {
   @Input()
 	sort: string;
 
-  filteredEvents: EventDetails[];
+	@Input()
+	district: DistrictCheckBoxEvent;
+
+	filteredEvents: EventDetails[];
+
+	unchecked = [];
 
 
 
   ngOnChanges() {
     this.getData();
     this.events && this.applyFilters();
-    this.sort && this.sortEvents();
+		this.sort && this.sortEvents();
+		this.district && this.applyDistrictFilters();
   }
 
   applyFilters() {
@@ -42,7 +48,16 @@ export class EventsComponent implements OnChanges {
       let after = new Date(event.event_date).getHours() > this.afterTime;
       return price && before && after;
     })
-  }
+	}
+
+	applyDistrictFilters() {
+		!this.district.checked
+			? this.unchecked.push(this.district.district)
+			: this.unchecked = this.unchecked.filter(district => district !== this.district.district);
+
+			console.log(this.unchecked)
+			this.filteredEvents = this.events.filter(event => !this.unchecked.includes(event.address.slice(1,3)));
+	}
 
   getData() {
     this.eventService.getEvents().subscribe((events: ApiResponse) => {

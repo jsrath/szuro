@@ -2,7 +2,8 @@
   <mat-sidenav mode="side" opened>
     <app-control-panel
       [props]="props"
-      (filteredValues)="updateValues($event)"
+			(filteredValues)="updateValues($event)"
+			(boxChecked)="updateChecked($event)"
 			(eventSortBy)="sortEvents($event)"
 			[districts]="uniqueDistricts">
     </app-control-panel>
@@ -14,7 +15,8 @@
       [beforeTime]="filteredBeforeTime"
       [afterTime]="filteredAfterTime"
       [price]="filteredPrice"
-			[sort]="sortBy">
+			[sort]="sortBy"
+			[district]="checkedDistrict">
     </app-events>
   </mat-sidenav-content>
 </mat-sidenav-container>

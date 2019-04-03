@@ -20,6 +20,7 @@ export class MainComponent implements OnInit {
   props: Props;
 	districts: [];
 	uniqueDistricts: any;
+	checkedDistrict: object;
 
   constructor(private eventService: EventService) { }
 
@@ -46,7 +47,11 @@ export class MainComponent implements OnInit {
     this.filteredPrice = Object.is(values.price, undefined) ? this.filteredPrice : values.price;
     this.filteredBeforeTime = values.beforeTime;
     this.filteredAfterTime = values.afterTime;
-  }
+	}
+
+	updateChecked(district) {
+		this.checkedDistrict = district;
+	}
 
   sortEvents(sortType) {
     this.sortBy = sortType;

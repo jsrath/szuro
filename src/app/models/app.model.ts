@@ -32,3 +32,8 @@ export interface SliderValues {
 export interface ApiResponse {
   events: EventDetails[];
 }
+
+export interface DistrictCheckBoxEvent {
+	checked: boolean;
+	district: string;
+}
