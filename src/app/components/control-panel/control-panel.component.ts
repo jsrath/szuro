@@ -12,7 +12,10 @@ export class ControlPanelComponent implements OnChanges {
   selectedSort: string;
 
   @Input()
-  props: Props | undefined;
+	props: Props | undefined;
+
+	@Input()
+	districts: [];
 
   @Output()
   filteredValues: EventEmitter<SliderValues> = new EventEmitter();

@@ -3,7 +3,8 @@
     <app-control-panel
       [props]="props"
       (filteredValues)="updateValues($event)"
-      (eventSortBy)="sortEvents($event)">
+			(eventSortBy)="sortEvents($event)"
+			[districts]="uniqueDistricts">
     </app-control-panel>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -13,7 +14,7 @@
       [beforeTime]="filteredBeforeTime"
       [afterTime]="filteredAfterTime"
       [price]="filteredPrice"
-      [sort]="sortBy">
+			[sort]="sortBy">
     </app-events>
   </mat-sidenav-content>
 </mat-sidenav-container>

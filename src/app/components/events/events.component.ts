@@ -23,7 +23,7 @@ export class EventsComponent implements OnChanges {
   events: EventDetails[];
 
   @Input()
-  sort: string;
+	sort: string;
 
   filteredEvents: EventDetails[];
 

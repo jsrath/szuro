@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ApiResponse, EventDetails } from './app.model';
+import { ApiResponse } from '../models/app.model';
 import { Observable } from 'rxjs';
 
 @Injectable({

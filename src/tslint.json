@@ -12,6 +12,11 @@
             "element",
             "app",
             "kebab-case"
-        ]
+				],
+				"indent": [
+					false,
+					"spaces"
+				],
+				"no-shadowed-variable": false,
     }
 }
