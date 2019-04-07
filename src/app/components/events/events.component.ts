@@ -90,4 +90,8 @@ export class EventsComponent implements OnChanges {
   formatEventTime(event: string) {
     return new Date(event).getHours()
   }
+  formatDescription(description) {
+    const mockDomElement = new DOMParser().parseFromString(description, 'text/html');
+    return mockDomElement.body.textContent || "";
+  }
 }
