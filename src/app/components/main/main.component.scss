@@ -1,12 +1,8 @@
-h1 {
-	text-align: center;
-	margin-bottom: 30px;
-}
-
 mat-sidenav {
-	width: 300px;
+	width: 250px;
 }
 
+mat-sidenav,
 mat-sidenav-content {
 	padding-top: 10px;
 	min-height: 100vh;
@@ -17,4 +13,6 @@ app-events {
 	justify-content: center;
 	align-items: center;
 	flex-direction: row;
+	min-height: 500px;
+	margin-left: 20px;
 }

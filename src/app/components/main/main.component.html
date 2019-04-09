@@ -2,21 +2,21 @@
   <mat-sidenav mode="side" opened>
     <app-control-panel
       [props]="props"
-			(filteredValues)="updateValues($event)"
-			(boxChecked)="updateChecked($event)"
-			(eventSortBy)="sortEvents($event)"
-			[districts]="uniqueDistricts">
+      (filteredValues)="updateValues($event)"
+      (boxChecked)="updateChecked($event)"
+      (eventSortBy)="sortEvents($event)"
+      [districts]="uniqueDistricts">
     </app-control-panel>
   </mat-sidenav>
   <mat-sidenav-content>
-    <h1>Cheap Theatre Tickets</h1>
+    <h2>Great Shows Tonight</h2>
     <app-events
       [events]="events"
       [beforeTime]="filteredBeforeTime"
       [afterTime]="filteredAfterTime"
       [price]="filteredPrice"
-			[sort]="sortBy"
-			[district]="checkedDistrict">
+      [sort]="sortBy"
+      [district]="checkedDistrict">
     </app-events>
   </mat-sidenav-content>
 </mat-sidenav-container>

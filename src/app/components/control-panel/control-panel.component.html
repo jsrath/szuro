@@ -1,60 +1,54 @@
-<mat-card>
-  <mat-card-content>
-    <mat-form-field>
-      <mat-label>Sort By</mat-label>
-      <mat-select [(value)]="selectedSort" (selectionChange)="updateSort()">
-        <mat-option value="price">Price</mat-option>
-        <mat-option value="early">Start Time (Earliest)</mat-option>
-        <mat-option value="late">Start Time (Latest)</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <p>{{selected}}</p>
-  </mat-card-content>
-</mat-card>
-<div class="district-container">
-<span class="districts" *ngFor="let district of districts">
-<mat-checkbox labelPosition="after" checked="true" [id]="district" (change)="updateCheckBoxes($event)" *ngIf="district">{{district}}</mat-checkbox>
-</span>
-</div>
-<mat-card>
-  <mat-card-content>
-    <h2>Price</h2>
-    <mat-slider
-      *ngIf="props"
-      class="price"
-      (input)="updatePrice($event.value)"
-      [value]="sliderValues.price"
-      [max]="props.maxPrice"
-      [min]="props.minPrice"
-      [step]="500">
-    </mat-slider>
-    <button class="myButton">{{ sliderValues.price | currency:'HUF':'HUF ':'0.0' }}</button>
-  </mat-card-content>
-</mat-card>
+<h2>Control Panel</h2>
+<div class="control-panel-container">
+  <mat-form-field>
+    <mat-label>Sort By</mat-label>
+    <mat-select [(value)]="selectedSort" (selectionChange)="updateSort()">
+      <mat-option value="price">Price</mat-option>
+      <mat-option value="early">Start Time (Earliest)</mat-option>
+      <mat-option value="late">Start Time (Latest)</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-divider></mat-divider>
+  <h3>Districts</h3>
+  <div class="district-container">
+    <span class="districts" *ngFor="let district of districts">
+      <mat-checkbox labelPosition="after" checked="true" [id]="district" (change)="updateCheckBoxes($event)"
+        *ngIf="district">{{district}}</mat-checkbox>
+    </span>
+  </div>
+  <mat-divider></mat-divider>
+  <h3>Price</h3>
+  <mat-slider
+    *ngIf="props"
+    class="price"
+    (input)="updatePrice($event.value)"
+    [value]="sliderValues.price"
+    [max]="props.maxPrice"
+    [min]="props.minPrice"
+    [step]="500">
+  </mat-slider>
+  <button class="myButton">{{ sliderValues.price | currency:'HUF':'HUF ':'0.0' }}</button>
 
-<mat-divider></mat-divider>
-<mat-card>
-  <mat-card-content>
-    <h2>Show Starts After</h2>
-    <mat-slider
-      *ngIf="props"
-      class="timeAfter"
-      (input)="updateAfterTime($event.value)"
-      [value]="sliderValues.afterTime"
-      [max]="props.maxTime"
-      [min]="props.minTime">
-    </mat-slider>
-    <button class="myButton">{{ sliderValues.afterTime }}:00</button>
-    <mat-divider></mat-divider>
-    <h2>Show Starts Before</h2>
-    <mat-slider
-      *ngIf="props"
-      class="timeBefore"
-      (input)="updateBeforeTime($event.value)"
-      [value]="sliderValues.beforeTime"
-      [max]="props.maxTime"
-      [min]="props.minTime">
-    </mat-slider>
-    <button class="myButton">{{ sliderValues.beforeTime }}:00</button>
-  </mat-card-content>
-</mat-card>
+  <mat-divider></mat-divider>
+  <h3>Show Starts After</h3>
+  <mat-slider
+    *ngIf="props"
+    class="timeAfter"
+    (input)="updateAfterTime($event.value)"
+    [value]="sliderValues.afterTime"
+    [max]="props.maxTime"
+    [min]="props.minTime">
+  </mat-slider>
+  <button class="myButton">{{ sliderValues.afterTime }}:00</button>
+  <mat-divider></mat-divider>
+  <h3>Show Starts Before</h3>
+  <mat-slider
+    *ngIf="props"
+    class="timeBefore"
+    (input)="updateBeforeTime($event.value)"
+    [value]="sliderValues.beforeTime"
+    [max]="props.maxTime"
+    [min]="props.minTime">
+  </mat-slider>
+  <button class="myButton">{{ sliderValues.beforeTime }}:00</button>
+</div>
