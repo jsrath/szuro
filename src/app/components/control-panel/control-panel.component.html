@@ -11,9 +11,11 @@
     <p>{{selected}}</p>
   </mat-card-content>
 </mat-card>
-<span *ngFor="let district of districts">
-<mat-checkbox checked="true" [id]="district" (change)="updateCheckBoxes($event)" *ngIf="district">{{district}}</mat-checkbox>
+<div class="district-container">
+<span class="districts" *ngFor="let district of districts">
+<mat-checkbox labelPosition="after" checked="true" [id]="district" (change)="updateCheckBoxes($event)" *ngIf="district">{{district}}</mat-checkbox>
 </span>
+</div>
 <mat-card>
   <mat-card-content>
     <h2>Price</h2>

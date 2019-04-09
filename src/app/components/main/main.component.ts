@@ -28,8 +28,7 @@ export class MainComponent implements OnInit {
     this.eventService.getEvents().subscribe((event: any) => {
 			this.events = event.events;
 			this.districts = event.events.map(event => this.formatAsOrdinal(event.address.slice(1,3)));
-			this.uniqueDistricts = [...new Set(this.districts)]
-			console.log(this.uniqueDistricts)
+			this.uniqueDistricts = [...new Set(this.districts)].filter(Boolean);
       this.minPrice = Math.floor(Math.min(...event.events.map(event => Number(event.discount_price))) / 1000) * 1000;
       this.maxPrice = Math.ceil(Math.max(...event.events.map(event => Number(event.discount_price))) / 1000) * 1000;
       this.minTime = Math.min(...event.events.map(event => new Date(event.event_date).getHours())) - 1;

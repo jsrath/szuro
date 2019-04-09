@@ -32,8 +32,6 @@ export class EventsComponent implements OnChanges {
 
   unchecked = [];
 
-
-
   ngOnChanges() {
     this.getData();
     this.events && this.applyFilters();
@@ -89,8 +87,9 @@ export class EventsComponent implements OnChanges {
 
   formatEventTime(event: string) {
     return new Date(event).getHours()
-  }
-  formatDescription(description) {
+	}
+
+  formatDescription(description: string) {
     const mockDomElement = new DOMParser().parseFromString(description, 'text/html');
     return mockDomElement.body.textContent || "";
   }
