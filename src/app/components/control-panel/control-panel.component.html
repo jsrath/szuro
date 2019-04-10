@@ -8,15 +8,7 @@
       <mat-option value="late">Start Time (Latest)</mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-divider></mat-divider>
-  <h3>Districts</h3>
-  <div class="district-container">
-    <span class="districts" *ngFor="let district of districts">
-      <mat-checkbox labelPosition="after" checked="true" [id]="district" (change)="updateCheckBoxes($event)"
-        *ngIf="district">{{district}}</mat-checkbox>
-    </span>
-  </div>
-  <mat-divider></mat-divider>
+  <mat-divider [inset]="true"></mat-divider>
   <h3>Price</h3>
   <mat-slider
     *ngIf="props"
@@ -28,8 +20,13 @@
     [step]="500">
   </mat-slider>
   <button class="myButton">{{ sliderValues.price | currency:'HUF':'HUF ':'0.0' }}</button>
-
-  <mat-divider></mat-divider>
+  <h3>Districts</h3>
+  <div class="district-container">
+    <span class="districts" *ngFor="let district of districts">
+      <mat-checkbox labelPosition="after" checked="true" [id]="district" (change)="updateCheckBoxes($event)"
+        *ngIf="district">{{district}}</mat-checkbox>
+    </span>
+  </div>
   <h3>Show Starts After</h3>
   <mat-slider
     *ngIf="props"
@@ -40,7 +37,6 @@
     [min]="props.minTime">
   </mat-slider>
   <button class="myButton">{{ sliderValues.afterTime }}:00</button>
-  <mat-divider></mat-divider>
   <h3>Show Starts Before</h3>
   <mat-slider
     *ngIf="props"
