@@ -1,18 +1,20 @@
+<h4 class="no-events" *ngIf="!filteredEvents || filteredEvents.length < 1">No events to display</h4>
 <div class="container">
-  <h3 *ngIf="!filteredEvents || filteredEvents.length < 1">No events to display</h3>
   <div class="card" *ngFor="let event of filteredEvents">
-    <div class="card-header" data-background-color="orange">
+    <div class="card-header">
       <mat-chip-list>
         <mat-chip>{{event.discount_price | currency:'HUF':'HUF ':'0.0'}}</mat-chip>
       </mat-chip-list>
-      <img [src]="event.thumbnail">
+      <a [href]="'https://www.maesteszinhaz.hu/' + event.url"><img [src]="event.thumbnail"></a>
     </div>
     <div class="card-content">
-      <h4 class="card-title">{{event.program_name}}</h4>
+      <a [href]="'https://www.maesteszinhaz.hu/' + event.url">
+        <h4 class="card-title">{{event.program_name}}</h4>
+      </a>
       <p class="description">{{formatDescription(event.description)}}</p>
     </div>
     <div class="card-footer">
-      <span class="bottom-line time"><i class="material-icons">access_time</i>{{event.event_start}}</span>
+      <span class="bottom-line"><i class="material-icons">access_time</i>{{event.event_start}}</span>
       <span class="bottom-line"><i class="material-icons">location_on</i>{{event.place_name}}</span>
     </div>
   </div>
