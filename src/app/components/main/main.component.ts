@@ -8,28 +8,31 @@ import { EventDetails, Props, SliderValues } from '../../models/app.model';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-	events: EventDetails;
+  events: EventDetails;
   filteredPrice: number;
   filteredBeforeTime: number;
   filteredAfterTime: number;
   sortBy: string;
   props: Props;
-	districts: [];
-	uniqueDistricts: any;
-	checkedDistrict: object;
-	
+  districts: [];
+  uniqueDistricts: any;
+  checkedDistrict: object;
+
   private minPrice: number;
   private maxPrice: number;
   private minTime: number;
-	private maxTime: number;
-	
+  private maxTime: number;
+
   constructor(private eventService: EventService) { }
-	
+
   ngOnInit() {
     this.eventService.getEvents().subscribe((event: any) => {
-			this.events = event.events;
-			this.districts = event.events.map(event => this.formatAsOrdinal(event.address.slice(1,3)));
-			this.uniqueDistricts = [...new Set(this.districts)].filter(Boolean);
+      if (!event.events.length) {
+        return;
+      }
+      this.events = event.events;
+      this.districts = event.events.map(event => this.formatAsOrdinal(event.address.slice(1, 3)));
+      this.uniqueDistricts = [...new Set(this.districts)].filter(Boolean);
       this.minPrice = Math.floor(Math.min(...event.events.map(event => Number(event.discount_price))) / 1000) * 1000;
       this.maxPrice = Math.ceil(Math.max(...event.events.map(event => Number(event.discount_price))) / 1000) * 1000;
       this.minTime = Math.min(...event.events.map(event => new Date(event.event_date).getHours())) - 1;
@@ -47,22 +50,22 @@ export class MainComponent implements OnInit {
     this.filteredPrice = Object.is(values.price, undefined) ? this.filteredPrice : values.price;
     this.filteredBeforeTime = values.beforeTime;
     this.filteredAfterTime = values.afterTime;
-	}
+  }
 
-	updateChecked(district) {
-		this.checkedDistrict = district;
-	}
+  updateChecked(district) {
+    this.checkedDistrict = district;
+  }
 
   sortEvents(sortType) {
     this.sortBy = sortType;
-	}
+  }
 
-	formatAsOrdinal(number) {
-		if (isNaN(number)) {
-			return;
-		}
-		const suffix = ["th", "st", "nd", "rd"];
-		const remainder = number % 100;
-		return `${parseInt(number, 10)}${suffix[(remainder - 20) % 10] || suffix[remainder] || suffix[0]}`;
-	}
+  formatAsOrdinal(number) {
+    if (isNaN(number)) {
+      return;
+    }
+    const suffix = ["th", "st", "nd", "rd"];
+    const remainder = number % 100;
+    return `${parseInt(number, 10)}${suffix[(remainder - 20) % 10] || suffix[remainder] || suffix[0]}`;
+  }
 }

@@ -5,10 +5,12 @@
       <mat-chip-list>
         <mat-chip>{{event.discount_price | currency:'HUF':'HUF ':'0.0'}}</mat-chip>
       </mat-chip-list>
-      <a [href]="'https://www.maesteszinhaz.hu/' + event.url"><img [src]="event.thumbnail"></a>
+      <a target="_blank" rel="noopener noreferrer" [href]="'https://www.maesteszinhaz.hu/' + event.url">
+        <img [src]="event.thumbnail">
+      </a>
     </div>
     <div class="card-content">
-      <a [href]="'https://www.maesteszinhaz.hu/' + event.url">
+      <a target="_blank" rel="noopener noreferrer" [href]="'https://www.maesteszinhaz.hu/' + event.url">
         <h4 class="card-title">{{event.program_name}}</h4>
       </a>
       <p class="description">{{formatDescription(event.description)}}</p>
