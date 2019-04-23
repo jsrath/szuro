@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class EventService {
   constructor(private http: HttpClient) { }
 
-  apiUrl = "../assets/mock-api.json"
+  apiUrl = "https://cors-anywhere.herokuapp.com/https://www.maesteszinhaz.hu/api"
   getEvents(): Observable<ApiResponse> {
     return this.http.get<ApiResponse>(this.apiUrl);
   }

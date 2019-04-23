@@ -1,5 +1,5 @@
 <h2>Control Panel</h2>
-<div class="control-panel-container">
+<div *ngIf="props" class="control-panel-container">
   <mat-form-field id="sort-selector">
     <mat-label>Sort By</mat-label>
     <mat-select [(value)]="selectedSort" (selectionChange)="updateSort()">
@@ -11,7 +11,6 @@
   <mat-divider [inset]="true"></mat-divider>
   <h3>Price</h3>
   <mat-slider
-    *ngIf="props"
     class="price"
     (input)="updatePrice($event.value)"
     [value]="sliderValues.price"
@@ -36,7 +35,6 @@
   </div>
   <h3>Show Starts After</h3>
   <mat-slider
-    *ngIf="props"
     class="timeAfter"
     (input)="updateAfterTime($event.value)"
     [value]="sliderValues.afterTime"
@@ -46,7 +44,6 @@
   <button class="outputButton">{{ sliderValues.afterTime }}:00</button>
   <h3>Show Starts Before</h3>
   <mat-slider
-    *ngIf="props"
     class="timeBefore"
     (input)="updateBeforeTime($event.value)"
     [value]="sliderValues.beforeTime"

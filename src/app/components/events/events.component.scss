@@ -1,4 +1,4 @@
-$mainColor: #0288D1;
+$mainColor: #0288d1;
 
 h3,
 h4 {
@@ -95,13 +95,14 @@ h4 {
 
 		.bottom-line {
 			line-height: 24px;
-			color: #333;
+			color: $mainColor;
 			font-size: 12px;
 
 			.material-icons {
 				position: relative;
 				top: 4px;
 				font-size: 18px;
+				margin-right: 3px
 			}
 		}
 	}
