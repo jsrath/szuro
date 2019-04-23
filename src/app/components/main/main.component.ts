@@ -8,11 +8,7 @@ import { EventDetails, Props, SliderValues } from '../../models/app.model';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  minPrice: number;
-  maxPrice: number;
-  minTime: number;
-  maxTime: number;
-  events: EventDetails;
+	events: EventDetails;
   filteredPrice: number;
   filteredBeforeTime: number;
   filteredAfterTime: number;
@@ -21,9 +17,14 @@ export class MainComponent implements OnInit {
 	districts: [];
 	uniqueDistricts: any;
 	checkedDistrict: object;
-
+	
+  private minPrice: number;
+  private maxPrice: number;
+  private minTime: number;
+	private maxTime: number;
+	
   constructor(private eventService: EventService) { }
-
+	
   ngOnInit() {
     this.eventService.getEvents().subscribe((event: any) => {
 			this.events = event.events;

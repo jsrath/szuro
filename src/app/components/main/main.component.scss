@@ -1,15 +1,16 @@
-$mainColor: red;
+$mainColor: #0288D1;
 
 mat-sidenav-container {
-	height: 1000px;
-}
-
-mat-sidenav-content {
 	height: 100%;
+	overflow: visible;
 }
 
 mat-sidenav {
 	width: 250px;
+	height: 100%;
+	overflow: auto;
+	min-height: max-content;
+	border-right: 1.2px solid $mainColor;
 
 	&.mat-drawer-inner-container {
 		scrollbar-width: thin;
@@ -17,10 +18,13 @@ mat-sidenav {
 	}
 }
 
+mat-sidenav-content {
+	min-height: 120vh;
+}
+
 app-events {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: row;
-	margin-left: 20px;
+	min-height: fit-content;
 }

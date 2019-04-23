@@ -1,4 +1,4 @@
-$mainColor: red;
+$mainColor: #0288D1;
 
 mat-card-content {
 	display: flex;
@@ -11,9 +11,9 @@ mat-slider {
 	width: 80%;
 }
 
-.myButton {
+.outputButton {
 	background-color: #fff;
-	border: 1px solid $mainColor;
+	border: 1.2px solid $mainColor;
 	border-radius: 3px;
 	color: $mainColor;
 	font-size: 12px;

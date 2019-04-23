@@ -1,6 +1,6 @@
 <h2>Control Panel</h2>
 <div class="control-panel-container">
-  <mat-form-field>
+  <mat-form-field id="sort-selector">
     <mat-label>Sort By</mat-label>
     <mat-select [(value)]="selectedSort" (selectionChange)="updateSort()">
       <mat-option value="price">Price</mat-option>
@@ -19,12 +19,19 @@
     [min]="props.minPrice"
     [step]="500">
   </mat-slider>
-  <button class="myButton">{{ sliderValues.price | currency:'HUF':'HUF ':'0.0' }}</button>
+  <button class="outputButton">{{ sliderValues.price | currency:'HUF':'HUF ':'0.0' }}</button>
   <h3>Districts</h3>
   <div class="district-container">
     <span class="districts" *ngFor="let district of districts">
-      <mat-checkbox labelPosition="after" checked="true" [id]="district" (change)="updateCheckBoxes($event)"
-        *ngIf="district">{{district}}</mat-checkbox>
+			<mat-checkbox
+				*ngIf="district"
+				class="district-checkboxes"
+				labelPosition="after" 
+				checked="true" 
+				[id]="district" 
+				(change)="updateCheckBoxes($event)">
+			{{ district }}
+		</mat-checkbox>
     </span>
   </div>
   <h3>Show Starts After</h3>
@@ -36,7 +43,7 @@
     [max]="props.maxTime"
     [min]="props.minTime">
   </mat-slider>
-  <button class="myButton">{{ sliderValues.afterTime }}:00</button>
+  <button class="outputButton">{{ sliderValues.afterTime }}:00</button>
   <h3>Show Starts Before</h3>
   <mat-slider
     *ngIf="props"
@@ -46,5 +53,5 @@
     [max]="props.maxTime"
     [min]="props.minTime">
   </mat-slider>
-  <button class="myButton">{{ sliderValues.beforeTime }}:00</button>
+  <button class="outputButton">{{ sliderValues.beforeTime }}:00</button>
 </div>

@@ -1,6 +1,6 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
-$mainColor: red;
+$mainColor: #0288D1;
 
 body {
 	margin: 0;
@@ -18,7 +18,10 @@ h4 {
 
 h2 {
 	text-align: center;
+	text-transform: uppercase;
 	margin-bottom: 30px;
+	font-size: 1.5rem;
+	color: $mainColor;
 }
 
 h3 {
@@ -28,6 +31,28 @@ h3 {
 
 a {
 	text-decoration: none;
+}
+
+#sort-selector {
+	.mat-select-arrow {
+		color: $mainColor;
+	}
+	.mat-form-field-ripple {
+		background-color: $mainColor;
+	}
+	&.mat-focused.mat-primary .mat-select-arrow {
+		color: $mainColor;
+	}
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+	color: $mainColor;
+}
+
+.mat-form-field-label {
+	mat-label {
+		color: $mainColor;
+	}
 }
 
 .mat-slider {
@@ -52,13 +77,14 @@ a {
 
 .mat-accent {
 	.mat-slider-thumb {
-		height: 30px;
-		width: 30px;
+		height: 27px;
+		width: 27px;
 		background-color: white;
-		border: solid 1px $mainColor;
-		bottom: -18px;
-		right: -18px;
+		border: solid 1.2px $mainColor;
+		bottom: -16px;
+		right: -16px;
 	}
+
 	.mat-slider-track-fill {
 		display: block;
 		height: 12px;
@@ -71,20 +97,22 @@ a {
 .districts {
 	.mat-checkbox-background,
 	.mat-checkbox-frame {
-		border-radius: 50%;
+		border-radius: 3px;
 		width: 20px;
 		height: 20px;
 		padding: 5px;
 		background-color: #fff;
-		border: 1px solid $mainColor;
+		border: 1.2px solid $mainColor;
 	}
 	.mat-checkbox-checked.mat-accent .mat-checkbox-background {
 		background-color: #fff;
-		border: 1px solid $mainColor;
+		border: 1.2px solid $mainColor;
 	}
+
 	.mat-checkbox-checkmark-path {
 		stroke: $mainColor !important;
 	}
+
 	.mat-checkbox-layout {
 		display: flex;
 		align-items: center;
@@ -101,6 +129,7 @@ a {
 ::-webkit-scrollbar-track {
 	box-shadow: inset 0 0 5px #999;
 }
+
 ::-webkit-scrollbar-thumb {
 	background: $mainColor;
 	border-radius: 5px;
