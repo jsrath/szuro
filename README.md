@@ -36,4 +36,4 @@ ng serve
 
 ---
 
-Created and maintained by [JS Rath](http://www.jsrath.com).
+Created and maintained by [JS Rath](https://www.jsrath.com).
