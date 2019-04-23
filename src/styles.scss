@@ -21,7 +21,10 @@ h2 {
 	text-transform: uppercase;
 	margin-bottom: 30px;
 	font-size: 1.5rem;
-	color: $mainColor;
+	padding-bottom: 0.5em;
+	background: linear-gradient(to left, transparent 15%, $mainColor 15%, $mainColor 85%, transparent 85%) bottom
+		no-repeat;
+	background-size: 200px 3px;
 }
 
 h3 {
@@ -104,6 +107,11 @@ a {
 		background-color: #fff;
 		border: 1.2px solid $mainColor;
 	}
+
+	.mat-ripple-element {
+		background-color: $mainColor !important;
+	}
+
 	.mat-checkbox-checked.mat-accent .mat-checkbox-background {
 		background-color: #fff;
 		border: 1.2px solid $mainColor;
