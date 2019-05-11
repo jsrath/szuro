@@ -14,7 +14,7 @@
 </p>
 <hr>
 <h1 align="center">Szuro</h1>
-<h4 align="center">Find Perfect (Cheap!) Events in Budapest</h4>
+<h4 align="center">Find and Filter Great Events in Budapest</h4>
 <h3 align="center"><a href="https://projects.jsrath.com/szuro">LIVE SITE</a></h3>
 
 Szuro is a modern Angular app that allows users to filter and sort cheap local events in Budapest.
