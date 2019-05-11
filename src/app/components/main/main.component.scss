@@ -1,5 +1,33 @@
 $mainColor: #0288d1;
 
+.no-events {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+	.no-events-message {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+
+		mat-icon {
+			transform: scale(3);
+			color: $mainColor;
+		}
+
+		h4 {
+			font-size: 1.5rem;
+			color: $mainColor;
+		}
+
+		p {
+			text-align: center;
+		}
+	}
+}
+
 mat-sidenav-container {
 	min-height: 120vh;
 }
@@ -14,6 +42,15 @@ mat-sidenav {
 	}
 }
 
+mat-sidenav-content {
+	.menu-toggle {
+		cursor: pointer;
+		transform: scale(1.5);
+		color: $mainColor;
+		margin: 20px 0 0 20px;
+	}
+}
+
 app-events {
 	padding-top: 10px;
 	display: flex;
@@ -21,4 +58,10 @@ app-events {
 	align-items: flex-start;
 	overflow: hidden;
 	min-height: 100vh;
+}
+
+@media screen and (min-width: 800px) {
+	.menu-toggle {
+		display: none;
+	}
 }

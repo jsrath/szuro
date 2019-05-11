@@ -1,5 +1,15 @@
-<mat-sidenav-container>
-  <mat-sidenav mode="side" opened>
+<div class="no-events">
+  <mat-spinner *ngIf="isLoading" class="spinner"></mat-spinner>
+  <div class="no-events-message" *ngIf="noEvents">
+    <mat-icon>error_outline</mat-icon>
+    <h4>No events to display</h4>
+    <p>Events are updated daily after midnight, and no longer appear after their start times.</p>
+    <p>Please check back later.</p>
+  </div>
+</div>
+
+<mat-sidenav-container *ngIf="renderUI">
+  <mat-sidenav #sidenav [(opened)]="opened" [(mode)]="mode">
     <app-control-panel
       [props]="props"
       (filteredValues)="updateValues($event)"
@@ -9,6 +19,7 @@
     </app-control-panel>
   </mat-sidenav>
   <mat-sidenav-content>
+    <mat-icon (click)="sidenav.toggle()" class="menu-toggle">menu</mat-icon>
     <h2>Today's Events</h2>
     <app-events
       [events]="events"

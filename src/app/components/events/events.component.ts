@@ -1,6 +1,7 @@
 import { Component, OnChanges, Input } from '@angular/core';
 import { EventService } from '../../services/event.service';
 import { EventDetails, ApiResponse, DistrictCheckBoxEvent } from '../../models/app.model';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-events',
@@ -31,6 +32,8 @@ export class EventsComponent implements OnChanges {
   filteredEvents: EventDetails[];
 
   unchecked = [];
+
+  prefix = environment.prefix;
 
   ngOnChanges() {
     this.getData();
@@ -87,7 +90,7 @@ export class EventsComponent implements OnChanges {
 
   formatEventTime(event: string) {
     return new Date(event).getHours()
-	}
+  }
 
   formatDescription(description: string) {
     const mockDomElement = new DOMParser().parseFromString(description, 'text/html');

@@ -41,3 +41,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Environment Variables 
+secret.ts
+
+# Assets
+./src/assets

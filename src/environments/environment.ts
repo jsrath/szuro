@@ -2,8 +2,12 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { config } from '../../secret'
+
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: config.url,
+  prefix: config.prefix
 };
 
 /*
